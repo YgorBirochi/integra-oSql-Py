@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-   <header>
+    <header>
         <h1>Biblioteca</h1>
         <nav>
             <a href="{{ url_for('index') }}">Home</a>
@@ -44,7 +44,9 @@
                     <td>{{ livro[3] }}</td>
                     <td>
                         <a href="{{ url_for('editar', id=livro[0]) }}">Editar</a>
-                        <a href="{{ url_for('deletar', id=livro[0]) }}">Deletar</a>
+                        <form action="{{ url_for('deletar', id=livro[0]) }}" method="post" style="display:inline;">
+                            <button type="submit">Deletar</button>
+                        </form>
                     </td>
                 </tr>
                 {% endfor %}
